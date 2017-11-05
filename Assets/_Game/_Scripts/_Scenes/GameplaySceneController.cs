@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using TMPro;
 
 
 public class GameplaySceneController : MonoBehaviour {
@@ -17,7 +18,7 @@ public class GameplaySceneController : MonoBehaviour {
     public float SecondsUntilLoss = 10;
     private float NumberOfSecondsElapsed = 0;
 
-   // public TextMeshPro CounterText = null;
+   public TextMeshProUGUI CounterText = null;
 
     private void Start()
     {
@@ -43,14 +44,15 @@ public class GameplaySceneController : MonoBehaviour {
         {
             if(NumberOfSecondsElapsed > SecondsUntilLoss)
             {
-                Debug.Log("Game Lost");
                 // Lose Game
-                // Set win flag so that next scene can load based on that
-                ControlFlowManager.Singleton.CurrentWinLoseState = ControlFlowManager.WIN_LOSE_STATE.LOSE;
+                Debug.Log("Game Lost");
 
                 // Fade Out and Advance Scene
                 FadeOutClip.Play();
                 yield return new WaitForSeconds((float)FadeOutClip.duration);
+
+                // Set win flag so that next scene can load based on that
+                ControlFlowManager.Singleton.CurrentWinLoseState = ControlFlowManager.WIN_LOSE_STATE.LOSE;
 
                 ControlFlowManager.Singleton.AdvanceScene();
             }
@@ -59,18 +61,19 @@ public class GameplaySceneController : MonoBehaviour {
             {
                 CurrentNumberOfClicks++;
                 Debug.Log("Current clicks: " + CurrentNumberOfClicks + "\nTime Left: " + (SecondsUntilLoss - NumberOfSecondsElapsed));
+                CounterText.text = "Counter = " + CurrentNumberOfClicks;
 
-                if(CurrentNumberOfClicks >= 5)
+                if (CurrentNumberOfClicks >= 5)
                 {
                     // Win Game
                     Debug.Log("Game Won");
 
-                    // Set win flag so that next scene can load based on that
-                    ControlFlowManager.Singleton.CurrentWinLoseState = ControlFlowManager.WIN_LOSE_STATE.WIN;
-                    
                     // Fade Out and Advance Scene
                     FadeOutClip.Play();
                     yield return new WaitForSeconds((float)FadeOutClip.duration);
+
+                    // Set win flag so that next scene can load based on that
+                    ControlFlowManager.Singleton.CurrentWinLoseState = ControlFlowManager.WIN_LOSE_STATE.WIN;
 
                     ControlFlowManager.Singleton.AdvanceScene();
                 }

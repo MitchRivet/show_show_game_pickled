@@ -793,6 +793,7 @@ MonoBehaviour:
   ShakeScreenClip: {fileID: 0}
   NumberOfClicksToWin: 5
   SecondsUntilLoss: 10
+  CounterText: {fileID: 403257008}
 --- !u!1 &1271080751
 GameObject:
   m_ObjectHideFlags: 0
