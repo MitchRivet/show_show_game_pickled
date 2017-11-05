@@ -9,5 +9,17 @@ EditorBuildSettings:
     path: Assets/_Game/_Scenes/MasterScene.unity
     guid: 40cc1c934a9dd1f47ab86afe99aa9ce9
   - enabled: 1
+    path: Assets/_Game/_Scenes/RulesScene.unity
+    guid: dbce20b1a9a262947a8c8eef91309c41
+  - enabled: 1
     path: Assets/_Game/_Scenes/IntroScene.unity
     guid: 4ca27f9b93555ae4c8a62efc95a6d9a4
+  - enabled: 1
+    path: Assets/_Game/_Scenes/GamePlayScene.unity
+    guid: ed5ad2691096d2c4991978d7e74c1f5b
+  - enabled: 1
+    path: Assets/_Game/_Scenes/WinLoseScene.unity
+    guid: 691910e74b676f24697d8d01867456d8
+  - enabled: 1
+    path: Assets/_Game/_Scenes/BlankScene.unity
+    guid: 7a1ea66c91ac05c418612757ac2f7748

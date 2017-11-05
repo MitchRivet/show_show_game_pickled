@@ -63,6 +63,10 @@ public class GameplaySceneController : MonoBehaviour {
                 Debug.Log("Current clicks: " + CurrentNumberOfClicks + "\nTime Left: " + (SecondsUntilLoss - NumberOfSecondsElapsed));
                 CounterText.text = "Counter = " + CurrentNumberOfClicks;
 
+                // Play sequence of zooming in on pig
+                ShakeScreenClip.Play();
+                yield return new WaitForSeconds((float)ShakeScreenClip.duration);
+
                 if (CurrentNumberOfClicks >= 5)
                 {
                     // Win Game
