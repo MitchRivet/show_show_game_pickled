@@ -17,12 +17,14 @@ public class MMWSServer : Singleton<MMWSServer>
     {
         //Debug.Log("Starting coroutine");
         //StartCoroutine(updateMakeyMakeys());
+        /*
         ws = new WebSocket(host);
         ws.OnOpen += (sender, e) => Debug.Log("Connected!");
         ws.OnMessage += (sender, e) => MessageReceived(e.Data);
         ws.OnError += (sender, e) => Debug.Log(e.Message);
         ws.OnClose += (sender, e) => Debug.Log("Connection Closed");
         ws.Connect();
+        */
         //nf.Notify(
         //      new NotificationMessage
         //      {
@@ -40,6 +42,17 @@ public class MMWSServer : Singleton<MMWSServer>
         //  }
         //);
 
+    }
+
+
+    public void InitConnection()
+    {
+        ws = new WebSocket(host);
+        ws.OnOpen += (sender, e) => Debug.Log("Connected!");
+        ws.OnMessage += (sender, e) => MessageReceived(e.Data);
+        ws.OnError += (sender, e) => Debug.Log(e.Message);
+        ws.OnClose += (sender, e) => Debug.Log("Connection Closed");
+        ws.Connect();
     }
 
     // Update is called once per frame
